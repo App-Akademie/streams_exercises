@@ -6,6 +6,14 @@ import 'package:streams_exercises/features/numbers/number_screen.dart';
 import 'package:streams_exercises/features/time/time_repository.dart';
 import 'package:streams_exercises/features/time/time_screen.dart';
 
+final ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+  foregroundColor: Colors.white,
+  backgroundColor: Colors.blue,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(4),
+  ),
+);
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -28,7 +36,8 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OutlinedButton(
+            ElevatedButton(
+              style: buttonStyle,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return NumberScreen(numberRepository: numberRepository);
@@ -36,7 +45,9 @@ class _MainScreenState extends State<MainScreen> {
               },
               child: const Text("Zum Number Screen"),
             ),
-            OutlinedButton(
+            SizedBox(height: 32),
+            ElevatedButton(
+              style: buttonStyle,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return TimeScreen(timeRepository: timeRepository);
@@ -44,7 +55,9 @@ class _MainScreenState extends State<MainScreen> {
               },
               child: const Text("Zum Time Screen"),
             ),
-            OutlinedButton(
+            SizedBox(height: 32),
+            ElevatedButton(
+              style: buttonStyle,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ChatScreen(chatRepository: chatRepository);
